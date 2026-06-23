@@ -1,6 +1,12 @@
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Triple Therapy - Body Transformation</title>
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="shortcut icon" href="favicon.ico">
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -15,6 +21,37 @@ font-family: 'Inter', sans-serif;
 }
 .font-display {
 font-family: 'Bricolage Grotesque', sans-serif;
+}
+/* Hardware-accelerated transitions */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Stagger delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+/* GPU promotion for zoom animations */
+.group img {
+  will-change: transform;
+}
+/* Accessibility & Low-end efficiency */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .group img {
+    transition: none !important;
+    transform: none !important;
+  }
 }
 </style><!-- aura-ga4-start -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2M6V79H761"></script>
@@ -54,15 +91,17 @@ gtag('config', 'G-2M6V79H761');
 
     <!-- Hero Section -->
     <section class="pt-36 md:pt-52 pb-24 px-6 flex flex-col items-center justify-center text-center relative z-10">
-        <span class="text-[#322018]/70 uppercase tracking-widest text-xs font-medium mb-6 block font-display">BODY TRANSFORMATION METHOD</span>
-        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-[#333833] max-w-5xl mb-8 leading-[1.1]">You don't just lose weight. <br>We reshape you.</h1>
-        <p class="text-[#655750] max-w-2xl mx-auto text-lg mb-12 leading-relaxed">The only protocol that combines appetite control, localized fat destruction, and skin firming in a unified, non-surgical sequence.</p>
-        <a href="#evaluacion" class="bg-[#64734f] text-white rounded-full pl-3 pr-8 py-3 flex items-center gap-4 hover:bg-[#546140] transition-colors duration-300 w-max mx-auto">
-            <span class="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center">
-                <i data-lucide="arrow-up-right" stroke-width="1.5" class="w-5 h-5"></i>
-            </span>
-            <span class="font-normal text-base">Schedule your evaluation</span>
-        </a>
+        <span class="reveal-on-scroll text-[#322018]/70 uppercase tracking-widest text-xs font-medium mb-6 block font-display">BODY TRANSFORMATION METHOD</span>
+        <h1 class="reveal-on-scroll delay-100 font-display text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-[#333833] max-w-5xl mb-8 leading-[1.1]">You don't just lose weight. <br>We reshape you.</h1>
+        <p class="reveal-on-scroll delay-200 text-[#655750] max-w-2xl mx-auto text-lg mb-12 leading-relaxed">The only protocol that combines appetite control, localized fat destruction, and skin firming in a unified, non-surgical sequence.</p>
+        <div class="reveal-on-scroll delay-300">
+            <a href="#evaluacion" class="group bg-[#64734f] text-white rounded-full pl-3 pr-8 py-3 flex items-center gap-4 hover:bg-[#546140] transition-colors duration-300 w-max mx-auto">
+                <span class="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center">
+                    <i data-lucide="arrow-up-right" stroke-width="1.5" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                </span>
+                <span class="font-normal text-base">Schedule your evaluation</span>
+            </a>
+        </div>
     </section>
 
     <!-- Hero Image window -->
@@ -76,19 +115,21 @@ gtag('config', 'G-2M6V79H761');
             
             <!-- Left: Image Composition -->
             <div class="relative w-full max-w-lg mx-auto aspect-square flex items-center justify-center">
-                <img src="https://framerusercontent.com/images/xUCwhBJfZYCpMaZQtOn31ACrSj0.png" class="absolute top-0 left-0 w-32 md:w-40 aspect-square object-cover rounded-full shadow-sm" alt="Evaluation">
-                <img src="https://framerusercontent.com/images/rw3yMMRnewqRdPD7gcsKoelw.png" class="absolute bottom-0 right-0 w-28 md:w-32 aspect-square object-cover rounded-full shadow-sm" alt="Treatment">
-                <img src="https://framerusercontent.com/images/ATY1QkNO1Ol6hCC3ShHLtQeOoxg.png" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 md:w-64 aspect-square object-cover rounded-full shadow-md z-10" alt="Wellness">
+                <img src="https://framerusercontent.com/images/xUCwhBJfZYCpMaZQtOn31ACrSj0.png" class="reveal-on-scroll absolute top-0 left-0 w-32 md:w-40 aspect-square object-cover rounded-full shadow-sm" alt="Evaluation">
+                <img src="https://framerusercontent.com/images/rw3yMMRnewqRdPD7gcsKoelw.png" class="reveal-on-scroll delay-200 absolute bottom-0 right-0 w-28 md:w-32 aspect-square object-cover rounded-full shadow-sm" alt="Treatment">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 md:w-64 aspect-square z-10">
+                    <img src="https://framerusercontent.com/images/ATY1QkNO1Ol6hCC3ShHLtQeOoxg.png" class="reveal-on-scroll delay-100 w-full h-full object-cover rounded-full shadow-md" alt="Wellness">
+                </div>
             </div>
 
             <!-- Right: Text Content -->
-            <div class="flex flex-col items-center lg:items-start text-center lg:text-left max-w-lg mx-auto lg:mx-0">
+            <div class="reveal-on-scroll flex flex-col items-center lg:items-start text-center lg:text-left max-w-lg mx-auto lg:mx-0">
                 <span class="text-[#322018]/70 uppercase tracking-widest text-xs font-medium mb-6 block font-display">WHY OTHERS FAIL</span>
                 <h2 class="font-display text-4xl md:text-5xl font-medium tracking-tight text-[#333833] mb-8 leading-tight">We attack from 3 clinical fronts</h2>
                 <p class="text-[#655750] text-lg mb-12 leading-relaxed">99% of treatments fail because they attack only a single front. Leave behind failed diets, stubborn fat that won't go away, and the fear of sagging skin. We don't sell magic. We sell science and medical commitment.</p>
-                <a href="#pilares" class="bg-[#64734f] text-white rounded-full pl-3 pr-8 py-3 flex items-center gap-4 hover:bg-[#546140] transition-colors duration-300 w-max">
+                <a href="#pilares" class="group bg-[#64734f] text-white rounded-full pl-3 pr-8 py-3 flex items-center gap-4 hover:bg-[#546140] transition-colors duration-300 w-max">
                     <span class="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center">
-                        <i data-lucide="arrow-up-right" stroke-width="1.5" class="w-5 h-5"></i>
+                        <i data-lucide="arrow-up-right" stroke-width="1.5" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                     </span>
                     <span class="font-normal text-base">Learn about the method</span>
                 </a>
@@ -100,14 +141,14 @@ gtag('config', 'G-2M6V79H761');
     <!-- Services Section (3 Pillars) -->
     <section id="pilares" class="bg-[#eaf0ea] py-24 md:py-36 px-6">
         <div class="max-w-7xl mr-auto ml-auto">
-            <div class="text-center mb-20 flex flex-col items-center">
+            <div class="reveal-on-scroll text-center mb-20 flex flex-col items-center">
                 <h2 class="font-display text-5xl md:text-7xl font-medium tracking-tight text-[#333833] mb-6">Our 3 Pillars</h2>
                 <p class="text-[#655750] text-lg max-w-xl">Unified methodology for real and visible results from the first sessions.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="relative h-[550px] rounded-[2rem] overflow-hidden group">
+                <div class="reveal-on-scroll relative h-[550px] rounded-[2rem] overflow-hidden group">
                     <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1956b7b0-532f-4ab7-9b55-a6f6128f59f4_1600w.jpg" class="transition-transform duration-700 group-hover:scale-105 brightness-[0.4] w-full h-full object-cover z-10 absolute top-0 right-0 bottom-0 left-0" alt="Metabolic Injection">
                     <div class="flex flex-col z-10 text-white text-center pt-10 pr-10 pb-10 pl-10 absolute top-0 right-0 bottom-0 left-0 items-center justify-between">
                         <span class="font-display uppercase tracking-widest text-xs font-medium flex items-center gap-2"><i data-lucide="syringe" stroke-width="1.5" class="w-5 h-5"></i> Pillar 1</span>
@@ -120,7 +161,7 @@ gtag('config', 'G-2M6V79H761');
                 </div>
 
                 <!-- Card 2 -->
-                <div class="relative h-[550px] rounded-[2rem] overflow-hidden group">
+                <div class="reveal-on-scroll delay-100 relative h-[550px] rounded-[2rem] overflow-hidden group">
                     <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b155c8b1-2fb7-4f04-8c9c-b93c46a4942f_1600w.jpg" class="transition-transform duration-700 group-hover:scale-105 brightness-[0.4] w-full h-full object-cover z-10 absolute top-0 right-0 bottom-0 left-0" alt="Ultracavitation">
                     <div class="flex flex-col z-10 text-white text-center pt-10 pr-10 pb-10 pl-10 absolute top-0 right-0 bottom-0 left-0 items-center justify-between">
                         <span class="font-display uppercase tracking-widest text-xs font-medium flex items-center gap-2"><i data-lucide="target" stroke-width="1.5" class="w-5 h-5"></i> Pillar 2</span>
@@ -133,7 +174,7 @@ gtag('config', 'G-2M6V79H761');
                 </div>
 
                 <!-- Card 3 -->
-                <div class="relative h-[550px] rounded-[2rem] overflow-hidden group">
+                <div class="reveal-on-scroll delay-200 relative h-[550px] rounded-[2rem] overflow-hidden group">
                     <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1a6ed13f-bdec-428d-b19e-272ca990ce6c_1600w.jpg" class="transition-transform duration-700 group-hover:scale-105 brightness-[0.4] w-full h-full object-cover z-10 absolute top-0 right-0 bottom-0 left-0" alt="Radiofrequency">
                     <div class="flex flex-col z-10 text-white text-center pt-10 pr-10 pb-10 pl-10 absolute top-0 right-0 bottom-0 left-0 items-center justify-between">
                         <span class="font-display uppercase tracking-widest text-xs font-medium flex items-center gap-2"><i data-lucide="wand-2" stroke-width="1.5" class="w-5 h-5"></i> Pillar 3</span>
@@ -153,13 +194,13 @@ gtag('config', 'G-2M6V79H761');
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row rounded-[2rem] overflow-hidden shadow-sm">
             
             <!-- Left Text Box -->
-            <div class="bg-[#f5f5f4] flex-1 p-12 lg:p-24 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+            <div class="reveal-on-scroll bg-[#f5f5f4] flex-1 p-12 lg:p-24 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
                 <span class="text-[#322018]/70 uppercase tracking-widest text-xs font-medium mb-6 block font-display">YOUR HEALTH IN EXPERT HANDS</span>
                 <h2 class="font-display text-4xl md:text-5xl font-medium tracking-tight text-[#333833] mb-8 leading-tight max-w-lg">Dr. Frankz Casamalhuapa</h2>
                 <p class="text-[#655750] text-lg mb-12 max-w-lg leading-relaxed">Over 23 years of clinical medical experience. Trained by Dr. Wali Gauvin in Washington DC. <br><br><strong class="font-medium">The doctor is his own testimonial:</strong> he lost 139 lbs and more than 5 sizes through this same methodology, proving that it is possible to achieve real results: 15-50 lbs in just 8 weeks.</p>
-                <a href="#resultados" class="flex items-center gap-4 hover:bg-[#546140] transition-colors duration-300 text-white bg-[#64734f] w-max rounded-full mb-14 pt-3 pr-8 pb-3 pl-3">
+                <a href="#resultados" class="group flex items-center gap-4 hover:bg-[#546140] transition-colors duration-300 text-white bg-[#64734f] w-max rounded-full mb-14 pt-3 pr-8 pb-3 pl-3">
                     <span class="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center">
-                        <i data-lucide="arrow-up-right" stroke-width="1.5" class="w-5 h-5"></i>
+                        <i data-lucide="arrow-up-right" stroke-width="1.5" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                     </span>
                     <span class="font-normal text-base">View testimonials</span>
                 </a>
@@ -174,7 +215,7 @@ gtag('config', 'G-2M6V79H761');
             </div>
 
             <!-- Right Image -->
-            <div class="flex-1 min-h-[500px] h-auto">
+            <div class="reveal-on-scroll delay-200 flex-1 min-h-[500px] h-auto">
                 <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c298c654-9797-420d-8f0f-30baa6b89ab6_1600w.jpg" class="w-full h-full object-cover" alt="Specialist Doctor">
             </div>
 
@@ -184,13 +225,13 @@ gtag('config', 'G-2M6V79H761');
     <!-- Testimonials Section -->
     <section class="bg-[#eaf0ea] pb-24 md:pb-36 px-6" id="resultados">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-12 max-w-3xl">
+            <div class="reveal-on-scroll mb-12 max-w-3xl">
                 <span class="text-[#322018]/70 uppercase tracking-widest text-xs font-medium mb-4 block font-display">RESULTS</span>
                 <h2 class="font-display text-4xl md:text-5xl font-medium tracking-tight text-[#333833]">Real patients. Real results.</h2>
             </div>
 
             <!-- Testimonial Card -->
-            <div class="border border-[#d7d1cc] bg-white/50 rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row gap-10 lg:gap-20 items-center">
+            <div class="reveal-on-scroll border border-[#d7d1cc] bg-white/50 rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row gap-10 lg:gap-20 items-center">
                 <div class="w-full md:w-[450px] aspect-square md:aspect-auto md:h-[400px] overflow-hidden rounded-[1.5rem] flex-shrink-0">
                     <img src="https://framerusercontent.com/images/M2E4LnwFkiQx73Jc3LBBnwxNv0Q.jpg" class="w-full h-full object-cover object-[49%_37%]" alt="Transformed Patient">
                 </div>
@@ -220,7 +261,7 @@ gtag('config', 'G-2M6V79H761');
             <div class="relative z-10 w-full px-6 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
                 
                 <!-- Left: Content -->
-                <div class="flex flex-col items-center lg:items-start text-center lg:text-left max-w-lg mx-auto lg:mx-0">
+                <div class="reveal-on-scroll flex flex-col items-center lg:items-start text-center lg:text-left max-w-lg mx-auto lg:mx-0">
                     <h2 class="font-display text-4xl md:text-5xl font-medium tracking-tight text-white mb-8 leading-tight">Schedule Your Body Evaluation Today</h2>
                     <p class="text-white/90 text-lg mb-12 leading-relaxed">Visible results from the first sessions. We don't sell magic, we sell clinical science. Take the first step toward your transformation.</p>
                     
@@ -235,7 +276,7 @@ gtag('config', 'G-2M6V79H761');
                 </div>
 
                 <!-- Right: Form Box -->
-                <div class="w-full max-w-[480px] mx-auto lg:ml-auto lg:mr-0 bg-[#fbfaf8] rounded-[2rem] p-8 md:p-12 shadow-2xl relative">
+                <div class="reveal-on-scroll delay-200 w-full max-w-[480px] mx-auto lg:ml-auto lg:mr-0 bg-[#fbfaf8] rounded-[2rem] p-8 md:p-12 shadow-2xl relative">
                     <div class="text-center mb-10">
                         <h3 class="font-display text-3xl font-medium tracking-tight text-[#333833] mb-3">Reserve Your Spot</h3>
                         <p class="text-[#655750] text-base">One of our specialists will get in touch with you.</p>
@@ -257,7 +298,7 @@ gtag('config', 'G-2M6V79H761');
                             <input type="email" placeholder="your@email.com" class="w-full bg-transparent border-0 border-b border-[#e5e5e5] px-0 pb-3 text-[#333833] text-lg focus:ring-0 focus:outline-none focus:border-[#333833] transition-colors placeholder:text-[#a3a3a3] font-normal">
                         </div>
 
-                        <button type="button" class="uppercase hover:bg-black transition-colors text-base font-medium text-white tracking-widest bg-[#64734f] w-full rounded-full mt-2 pt-4 pb-4 shadow-sm">
+                        <button type="button" class="uppercase hover:bg-black active:scale-[0.98] transition-all duration-200 text-base font-medium text-white tracking-widest bg-[#64734f] w-full rounded-full mt-2 pt-4 pb-4 shadow-sm">
                             Submit Request
                         </button>
                     </form>
@@ -273,19 +314,19 @@ gtag('config', 'G-2M6V79H761');
             
             <div class="flex flex-col lg:flex-row justify-between gap-16 lg:gap-12 mb-28">
                 <!-- Left: Footer CTA -->
-                <div class="max-w-lg gap-x-4 gap-y-4">
+                <div class="reveal-on-scroll max-w-lg gap-x-4 gap-y-4">
                     <h2 class="font-display text-4xl md:text-5xl font-medium tracking-tight text-[#333833] mb-8 leading-tight">Start your transformation today</h2>
                     <p class="text-[#655750] text-lg mb-10 leading-relaxed max-w-md">Take the first step toward a healthier life and a renewed body. Schedule your evaluation with Dr. Frankz and discover our exclusive protocol.</p>
-                    <a href="#evaluacion" class="flex items-center gap-4 hover:bg-[#546140] transition-colors duration-300 text-white bg-[#64734f] w-max rounded-full pt-3 pr-8 pb-3 pl-3">
+                    <a href="#evaluacion" class="group flex items-center gap-4 hover:bg-[#546140] transition-colors duration-300 text-white bg-[#64734f] w-max rounded-full pt-3 pr-8 pb-3 pl-3">
                         <span class="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center">
-                            <i data-lucide="arrow-up-right" stroke-width="1.5" class="w-5 h-5"></i>
+                            <i data-lucide="arrow-up-right" stroke-width="1.5" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                         </span>
                         <span class="font-normal text-base">Book your appointment</span>
                     </a>
                 </div>
 
                 <!-- Right: Navigation Links -->
-                <div class="flex flex-wrap lg:flex-nowrap gap-12 lg:gap-24">
+                <div class="reveal-on-scroll delay-200 flex flex-wrap lg:flex-nowrap gap-12 lg:gap-24">
                     <div class="flex flex-col gap-5">
                         <h5 class="font-display font-medium text-2xl tracking-tight text-[#333833] mb-3">Clinic</h5>
                         <a href="#problema" class="text-[#655750] hover:text-[#333833] text-lg transition-colors">The Problem</a>
@@ -344,9 +385,40 @@ gtag('config', 'G-2M6V79H761');
         </div>
     </footer>
 
-    <!-- Initialize Lucide Icons -->
+    <!-- Initialize Lucide Icons & Scroll Animations -->
     <script>
         lucide.createIcons();
+
+        // Optimized Intersection Observer for Scroll Animations
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if user prefers reduced motion
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) {
+                // If user prefers reduced motion, set all elements to visible immediately
+                document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+                    el.classList.add('visible');
+                });
+                return;
+            }
+
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px 0px -8% 0px", // triggers slightly before entering viewport
+                threshold: 0.05
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target); // Unobserve to free resources
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll(".reveal-on-scroll");
+            revealElements.forEach(el => observer.observe(el));
+        });
     </script>
 
 </body></html>
